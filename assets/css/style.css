@@ -1,0 +1,542 @@
+/* --- CSS VARIABEL & RESET --- */
+:root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --secondary: #0f172a;
+    --bg-color: #f8fafc;
+    --text-main: #334155;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --success: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- NAVBAR --- */
+nav {
+    background-color: var(--primary);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #bfdbfe;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--white);
+}
+
+/* --- HERO SECTION --- */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    padding: 5rem 5% 4rem;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.author-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    max-width: 1100px;
+    margin: -2rem auto 3rem;
+    padding: 0 5%;
+    position: relative;
+}
+
+/* --- CARD STYLE --- */
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.05);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-top: 5px solid var(--primary-light);
+    /* Animasi Scroll */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.8rem;
+}
+
+.card-title span {
+    background: var(--primary-light);
+    color: var(--white);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+/* --- TAMBAHAN STYLE UNTUK PROFIL --- */
+.profile-section {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    flex: 0 0 250px;
+    /* Hapus height: 180px; agar tinggi mengikuti foto */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f9;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto; /* Biarkan tinggi otomatis menyesuaikan foto */
+    object-fit: cover; /* Tetap cover, tapi karena tingginya otomatis, foto tidak akan terpotong */
+    display: block;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-text h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-text p {
+    text-align: justify;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+}
+
+/* ---------------------------------- */
+
+.analysis-content {
+    margin-bottom: 1.5rem;
+}
+
+.analysis-content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.highlight-box {
+    background-color: #eff6ff;
+    border-left: 4px solid var(--primary-light);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+}
+
+.highlight-box strong {
+    color: var(--primary);
+}
+
+.custom-list {
+    margin-left: 20px; 
+    margin-bottom: 1rem;
+}
+
+/* --- FILE ATTACHMENTS --- */
+.files-section {
+    background: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.files-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--secondary);
+}
+
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--primary);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+}
+
+.file-link:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.file-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- GALLERY (DOKUMENTASI) --- */
+.section-desc {
+    margin-bottom: 1.5rem;
+}
+
+.sub-title {
+    margin-bottom: 1rem; 
+    color: var(--primary);
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #cbd5e1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 1.5rem 1rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--secondary);
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header h2 {
+        font-size: 1.8rem;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    
+    /* Penyesuaian Profil di Layar HP */
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+    }
+
+    .profile-text p {
+        text-align: center;
+    }
+}
+/* --- STYLE PETA LOKASI (MAPS) --- */
+.map-container {
+    margin-top: 1.5rem;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.map-container h5 {
+    margin-bottom: 0.8rem;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    display: block;
+}
+/* --- MODAL PREVIEW DOKUMEN --- */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.8); /* Latar belakang gelap transparan */
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 900px;
+    height: 85vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.close-btn {
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #fca5a5;
+}
+
+.modal-body {
+    flex: 1;
+    padding: 0;
+    background-color: #f1f5f9;
+    position: relative;
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    background-color: #f8fafc;
+    border-top: 1px solid var(--border);
+    text-align: right;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: var(--primary-light);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background-color: var(--primary);
+}
+/* --- PENGATURAN NAVBAR & LOGO --- */
+nav {
+    /* (Pastikan style nav Anda sebelumnya tetap ada) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ... */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antar logo */
+    background-color: rgba(255, 255, 255, 1); /* Background putih transparan agar logo terlihat jelas */
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.logo-container img {
+    height: 35px; /* Tinggi logo. Sesuaikan jika kurang besar/kecil */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Penyesuaian untuk layar HP (Responsive) */
+@media (max-width: 768px) {
+    .nav-left {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        height: 25px; /* Logo lebih kecil di HP */
+    }
+}
+/* Tambahan untuk kotak kelebihan & kekurangan */
+.box-kelebihan {
+    background-color: #f0fdf4;
+    border-left-color: #22c55e;
+}
+.box-kelebihan strong {
+    color: #166534;
+}
+.box-kekurangan {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+}
+.box-kekurangan strong {
+    color: #991b1b;
+}
